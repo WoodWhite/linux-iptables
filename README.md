@@ -46,9 +46,16 @@
 
 # 示例
 ## 查看规则 
-> 1. 常规查看：iptables -t 表名 -L
-> 2. 详细查看：iptables -t 表名 -v -L
-> 3. 查看标号：iptables -t 表名 -L --line-numbers
+```
+iptables [-t tables] [-L] [-nv]
+-n : 不进行 IP 与 HOSTNAME 的反查，显示讯息的速度会快很多！
+-L : 列出目前的 table 的规则。
+-t : 后面接 table ，例如 nat 或 filter ，若省略此项目，则使用默认的 filter。
+-v : 列出更多的信息，包括通过该规则的封包总位数、相关的网络接口等。
+```
+> 1. 常规查看：iptables -t 表名 -nv -L
+> 2. 详细查看：iptables -t 表名 -nv -L
+> 3. 查看标号：iptables -t 表名 -nv -L --line-numbers
 
 ## 删除规则
 > 1. 根据标号删除：iptables -t 表名 -D 链名 标号
