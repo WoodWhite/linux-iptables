@@ -81,6 +81,8 @@ iptables -t filter -I INPUT 2 -p tcp --dport 3306 -j DROP
 iptables -t nat -A POSTROUTING -s 172.17.0.0/24 -j MASQUERADE
 ```
 
+## iptables 保存
+> 保证下次开机规则生效，需要执行: iptables save
 
 
 
