@@ -67,11 +67,11 @@ iptables [-t tables] [-L] [-nv]
 >
 ```
 1. 使用追加 -A
+iptables -t filter -A INPUT -s 1.1.1.1 -p tcp --dport 3306 -j ACCEPT
 iptables -t filter -A INPUT -p tcp --dport 3306 -j DROP
-iptables -t filter -A INPUT -s 1.1.1.1 -p tcp --dport 3306 -j ACCEPT
 2. 使用追加 -A 和 插入 -I
-iptables -t filter -A INPUT -s 1.1.1.1 -p tcp --dport 3306 -j ACCEPT
-iptables -t filter -I INPUT 2 -p tcp --dport 3306 -j DROP
+iptables -t filter -A INPUT -p tcp --dport 3306 -j DROP
+iptables -t filter -I INPUT -s 1.1.1.1 -p tcp --dport 3306 -j ACCEPT
 ```
 
 ## nat表添加规则
